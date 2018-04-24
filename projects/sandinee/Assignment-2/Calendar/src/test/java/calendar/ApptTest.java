@@ -18,6 +18,7 @@ public class ApptTest  {
       assertEquals(0, appt0.getRecurIncrement());
       appt0.setValid();
   }
+  
   @Test(timeout = 4000)
   public void test01()  throws Throwable  {
 	  	// Set the private methods of the class
@@ -82,6 +83,169 @@ public class ApptTest  {
 	  	assertEquals("Doctor Appt", appt2.getTitle() );
 	  	assertEquals("Have to get arm fixed", appt2.getDescription() );
 	  	assertEquals("yyy@yahoo.com", appt2.getEmailAddress() );
+
+  }
+  
+  @Test(timeout = 4000)
+  public void test03() throws Throwable {
+	  	// Set the private methods of the class
+	  	int startHour = 24;
+	  	int startMinute = 15;
+	  	int startDay = 15;
+	  	// Month is out of range
+	  	int startMonth = 10;
+	  	int startYear = 2018;
+	  	String title = "Dinner Appt";
+	  	String description = "Have Dinner with Kobe";
+	  	String emailAddress = "kobe24@yahoo.com";
+
+	  	// Use constructor to build the new Appt()...
+	  	Appt appt3 = new Appt(
+                    startHour, startMinute, startDay, startMonth,
+                    startYear, title, description, emailAddress
+                    );
+	  	appt3.toString();
+
+	  	// assertTrue that this appt is valid
+	  	assertTrue(appt3.getValid() );
+	  	assertTrue(appt3.hasTimeSet());
+	  	// assert that all values from above are equal to the new appt1 we set
+	  	assertEquals(24, appt3.getStartHour() );
+	  	assertEquals(15, appt3.getStartMinute() );
+	  	assertEquals(15, appt3.getStartDay() );
+	  	assertEquals(10, appt3.getStartMonth() );
+	  	assertEquals(2018, appt3.getStartYear() );
+	  	assertEquals("Dinner Appt", appt3.getTitle() );
+	  	assertEquals("Have Dinner with Kobe", appt3.getDescription() );
+	  	assertEquals("kobe24@yahoo.com", appt3.getEmailAddress() );
+
+  }
+  
+  @Test(timeout = 4000)
+  public void test04() throws Throwable {
+	  	// Set the private methods of the class
+	  	int startHour = 0;
+	  	int startMinute = 59;
+	  	int startDay = 29;
+	  	// Month is out of range
+	  	int startMonth = 02;
+	  	int startYear = 2018;
+	  	String title = "Dinner Appt";
+	  	String description = "Have Dinner with Kobe";
+	  	String emailAddress = "kobe24@yahoo.com";
+
+	  	// Use constructor to build the new Appt()...
+	  	Appt appt4 = new Appt(
+                    startHour, startMinute, startDay, startMonth,
+                    startYear, title, description, emailAddress
+                    );
+	  	appt4.toString();
+
+	  	int recurDays[] = null;
+	  	int recurBy = 2;
+	  	int recurIncrement = 2;
+	  	int recurNumber = 2;
+	  	appt4.setRecurrence(recurDays, recurBy, recurIncrement, recurNumber);
+	  	appt4.isRecurring();
+	  	// assertTrue that this appt is valid
+	  	assertTrue(appt4.getValid() );
+
+  }
+  
+  @Test(timeout = 4000)
+  public void test05() throws Throwable {
+	  	// Set the private methods of the class
+	  	int startHour = 30;
+	  	int startMinute = 70;
+	  	int startDay = 15;
+	  	// Month is out of range
+	  	int startMonth = 06;
+	  	int startYear = 2018;
+	  	String title = null;
+	  	String description = null;
+	  	String emailAddress = null;
+
+	  	// Use constructor to build the new Appt()...
+	  	Appt appt5 = new Appt(
+                    startHour, startMinute, startDay, startMonth,
+                    startYear, title, description, emailAddress
+                    );
+	  	appt5.toString();
+
+	  	// assertTrue that this appt is valid
+	  	assertTrue(appt5.getValid() );
+	
+  }
+  @Test(timeout = 4000)
+  public void test06() throws Throwable {
+	  	// Set the private methods of the class
+	  	int startHour = -1;
+	  	int startMinute = 90;
+	  	int startDay = 15;
+	  	// Month is out of range
+	  	int startMonth = 10;
+	  	int startYear = -2018;
+	  	String title = "Test";
+	  	String description = "Testing the test";
+	  	String emailAddress = "test@test.com";
+
+	  	// Use constructor to build the new Appt()...
+	  	Appt appt6 = new Appt(
+                    startHour, startMinute, startDay, startMonth,
+                    startYear, title, description, emailAddress
+                    );
+	  	
+	  	appt6.setStartHour(15);
+	  	appt6.setStartMinute(30);
+	  	appt6.setStartDay(12);
+	  	appt6.setStartMonth(05);
+	  	appt6.setStartYear(2020);
+
+	  	// assertTrue that this appt is valid
+	   assertTrue(appt6.getValid() );
+	
+  }
+  
+  @Test(timeout = 4000)
+  public void test07() throws Throwable {
+	  	// Set the private methods of the class
+	  	int startHour = -1;
+	  	int startMinute = 90;
+	  	int startDay = 15;
+	  	// Month is out of range
+	  	int startMonth = 10;
+	  	int startYear = -2018;
+	  	String title = "Test";
+	  	String description = "Testing the test";
+	  	String emailAddress = "test@test.com";
+
+	  	// Use constructor to build the new Appt()...
+	  	Appt appt6 = new Appt(startHour, startMinute, startDay, startMonth,
+                startYear, title, description, emailAddress);
+	  	
+	 
+	  	
+	  	startHour = 24;
+	  	startMinute = 15;
+	  	startDay = 15;
+	  	startMonth = 10;
+	  	startYear = 2018;
+	  	// assertTrue that this appt is valid
+	  	assertTrue(appt6.getValid() );
+	  	Appt appt6a = new Appt(startHour, startMinute, startDay, startMonth,
+                startYear, title, description, emailAddress);
+	  	
+	  	
+	
+	  	
+	  	assertEquals(24, appt6a.getStartHour() );
+	  	assertEquals(15, appt6a.getStartMinute() );
+	  	assertEquals(15, appt6a.getStartDay() );
+	  	assertEquals(10, appt6a.getStartMonth() );
+	  	assertEquals(2018, appt6a.getStartYear() );
+	  	assertEquals("Test", appt6a.getTitle() );
+	  	assertEquals("Testing the test", appt6a.getDescription() );
+	  	assertEquals("test@test.com", appt6a.getEmailAddress() );
 
   }
 
