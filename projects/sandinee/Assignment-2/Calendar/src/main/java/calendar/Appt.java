@@ -376,6 +376,10 @@ public class Appt{
          String day= this.getStartMonth()+"/"+this.getStartDay()+"/"+this.getStartYear() + " at ";
         return "\t"+ day +  this.represntationApp()  + " ," +  getTitle()+ ", "+  getDescription()+"\n";
     }
+	public int compareTo(Appt appt2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 
 

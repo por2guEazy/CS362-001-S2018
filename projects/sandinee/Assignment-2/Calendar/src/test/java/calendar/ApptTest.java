@@ -29,7 +29,7 @@ public class ApptTest  {
         int startMonth = 15;
         int startYear = 2018;
         String title = "Dentist Appt";
-        String description = "Have to get implent replaced";
+        String description = "Have to get implant replaced";
         String emailAddress = "xxx@yahoo.com";
 
         // Use constructor to build the new Appt()...
@@ -48,7 +48,7 @@ public class ApptTest  {
         assertEquals(15, appt1.getStartMonth() );
         assertEquals(2018, appt1.getStartYear() );
         assertEquals("Dentist Appt", appt1.getTitle() );
-        assertEquals("Have to get implent replaced", appt1.getDescription() );
+        assertEquals("Have to get implant replaced", appt1.getDescription() );
         assertEquals("xxx@yahoo.com", appt1.getEmailAddress() );
 
   }
@@ -155,9 +155,9 @@ public class ApptTest  {
   @Test(timeout = 4000)
   public void test05() throws Throwable {
 	  	// Set the private methods of the class
-	  	int startHour = 30;
-	  	int startMinute = 70;
-	  	int startDay = 15;
+	  	int startHour = -30;
+	  	int startMinute = -70;
+	  	int startDay = -15;
 	  	// Month is out of range
 	  	int startMonth = 06;
 	  	int startYear = 2018;
@@ -223,8 +223,6 @@ public class ApptTest  {
 	  	Appt appt6 = new Appt(startHour, startMinute, startDay, startMonth,
                 startYear, title, description, emailAddress);
 	  	
-	 
-	  	
 	  	startHour = 24;
 	  	startMinute = 15;
 	  	startDay = 15;
@@ -235,9 +233,6 @@ public class ApptTest  {
 	  	Appt appt6a = new Appt(startHour, startMinute, startDay, startMonth,
                 startYear, title, description, emailAddress);
 	  	
-	  	
-	
-	  	
 	  	assertEquals(24, appt6a.getStartHour() );
 	  	assertEquals(15, appt6a.getStartMinute() );
 	  	assertEquals(15, appt6a.getStartDay() );
@@ -247,6 +242,140 @@ public class ApptTest  {
 	  	assertEquals("Testing the test", appt6a.getDescription() );
 	  	assertEquals("test@test.com", appt6a.getEmailAddress() );
 
+  }
+  
+  @Test(timeout = 4000)
+  public void test08() throws Throwable {
+	 	int startHour = -12;
+	  	int startMinute = 35;
+	  	int startDay = 40;
+	  	// Month is out of range
+	  	int startMonth = 10;
+	  	int startYear = 2018;
+	  	String title = "Doctor Appt";
+	  	String description = "Have to get arm fixed";
+	  	String emailAddress = "yyy@yahoo.com";
+
+	  	// Use constructor to build the new Appt()...
+	  	Appt appt2 = new Appt(
+                    startHour, startMinute, startDay, startMonth,
+                    startYear, title, description, emailAddress
+                    );
+	  	 appt2.setValid();
+  }
+  @Test(timeout = 4000)
+  public void test09() throws Throwable {
+	 	int startHour = 5;
+	  	int startMinute = -35;
+	  	int startDay = 40;
+	  	// Month is out of range
+	  	int startMonth = 10;
+	  	int startYear = 2018;
+	  	String title = "Doctor Appt";
+	  	String description = "Have to get arm fixed";
+	  	String emailAddress = "yyy@yahoo.com";
+	  	// Use constructor to build the new Appt()...
+	  	Appt appt2 = new Appt(
+                    startHour, startMinute, startDay, startMonth,
+                    startYear, title, description, emailAddress
+                    );
+	  	 appt2.setValid();
+  }
+  
+  @Test(timeout = 4000)
+  public void test10() throws Throwable {
+	 	int startHour = 5;
+	  	int startMinute = 5;
+	  	int startDay = -40;
+	  	// Month is out of range
+	  	int startMonth = 10;
+	  	int startYear = 2018;
+	  	String title = "Doctor Appt";
+	  	String description = "Have to get arm fixed";
+	  	String emailAddress = "yyy@yahoo.com";
+	  	// Use constructor to build the new Appt()...
+	  	Appt appt2 = new Appt(
+                    startHour, startMinute, startDay, startMonth,
+                    startYear, title, description, emailAddress
+                    );
+	  	 appt2.setValid();
+  }
+  @Test(timeout = 4000)
+  public void test11() throws Throwable {
+	 	int startHour = 5;
+	  	int startMinute = 5;
+	  	int startDay = 4;
+	  	// Month is out of range
+	  	int startMonth = 10;
+	  	int startYear = -2018;
+	  	String title = "Doctor Appt";
+	  	String description = "Have to get arm fixed";
+	  	String emailAddress = "yyy@yahoo.com";
+
+	  	// Use constructor to build the new Appt()...
+	  	Appt appt2 = new Appt(
+                    startHour, startMinute, startDay, startMonth,
+                    startYear, title, description, emailAddress
+                    );
+	  	 appt2.setValid();
+  }
+  @Test(timeout = 4000)
+  public void test12() throws Throwable {
+	 	int startHour = 5;
+	  	int startMinute = 5;
+	  	int startDay = 4;
+	  	// Month is out of range
+	  	int startMonth = -10;
+	  	int startYear = 2018;
+	  	String title = "Doctor Appt";
+	  	String description = "Have to get arm fixed";
+	  	String emailAddress = "yyy@yahoo.com";
+
+	  	// Use constructor to build the new Appt()...
+	  	Appt appt2 = new Appt(
+                    startHour, startMinute, startDay, startMonth,
+                    startYear, title, description, emailAddress
+                    );
+	  	 appt2.setValid();
+  }
+  @Test(timeout = 4000)
+  public void test13() throws Throwable {
+	 	int startHour = 5;
+	  	int startMinute = 5;
+	  	int startDay = 45;
+	  	// Month is out of range
+	  	int startMonth = 10;
+	  	int startYear = 2018;
+	  	String title = "Doctor Appt";
+	  	String description = "Have to get arm fixed";
+	  	String emailAddress = "yyy@yahoo.com";
+
+	  	// Use constructor to build the new Appt()...
+	  	Appt appt2 = new Appt(
+                    startHour, startMinute, startDay, startMonth,
+                    startYear, title, description, emailAddress
+                    );
+	  	 appt2.setValid();
+  }
+  
+  @Test(timeout = 4000)
+  public void test14() throws Throwable {
+	 	int startHour = 5;
+	  	int startMinute = 5;
+	  	int startDay = 5;
+	  	// Month is out of range
+	  	int startMonth = 10;
+	  	int startYear = 2018;
+	  	String title = "Doctor Appt";
+	  	String description = "Have to get arm fixed";
+	  	String emailAddress = "yyy@yahoo.com";
+
+	  	// Use constructor to build the new Appt()...
+	  	Appt appt2 = new Appt(
+                    startHour, startMinute, startDay, startMonth,
+                    startYear, title, description, emailAddress
+                    );
+	  	 assertTrue(appt2.isOn(startDay, startMonth, startYear));
   }
 
 }
