@@ -228,6 +228,9 @@ public class CalDayTest{
 		calday.addAppt(appt4);
 
 		appts2= calday.getAppts();
+		
+		String one = calday.getFullInfomrationApp(calday);
+		System.out.println(one);
 
 		int size;
 
