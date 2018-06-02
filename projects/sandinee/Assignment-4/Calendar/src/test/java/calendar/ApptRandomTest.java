@@ -20,6 +20,8 @@ public class ApptRandomTest {
 	private static final long TestTimeout = 60 * 500 * 1; /* Timeout at 30 seconds */
 	private static final int NUM_TESTS=100;
 
+
+
 	/**
 	 * Return a randomly selected method to be tests !.
 	 */
@@ -30,6 +32,7 @@ public class ApptRandomTest {
     	            
         return methodArray[n] ; // return the method name 
         }
+    
 	/**
 	 * Return a randomly selected appointments to recur Weekly,Monthly, or Yearly !.
 	 */
@@ -56,36 +59,42 @@ public class ApptRandomTest {
 
 		 long startTime = Calendar.getInstance().getTimeInMillis();
 		 long elapsed = Calendar.getInstance().getTimeInMillis() - startTime;
-
 		 
 		 System.out.println("Start testing...");
 		 
 		try{ 
 			for (int iteration = 0; elapsed < TestTimeout; iteration++) {
-				long randomseed =System.currentTimeMillis(); //10
-	//			System.out.println(" Seed:"+randomseed );
+				long randomseed =System.currentTimeMillis(); 
 				Random random = new Random(randomseed);
 				
-				 int startHour=ValuesGenerator.getRandomIntBetween(random, 1, 11);
-				 int startMinute=ValuesGenerator.getRandomIntBetween(random, 1, 11);
-				 int startDay=ValuesGenerator.getRandomIntBetween(random, 1, 11);
-				 int startMonth=ValuesGenerator.getRandomIntBetween(random, 1, 11);
-				 int startYear=ValuesGenerator.getRandomIntBetween(random, 2018, 2018);
+				 // Set values to make valid and invalid appointments
+				 int startHour=ValuesGenerator.getRandomIntBetween(random, -5, 30);
+				 int startMinute=ValuesGenerator.getRandomIntBetween(random, -5, 65);
+				 int startDay=ValuesGenerator.getRandomIntBetween(random, -5, 35);
+				 int startMonth=ValuesGenerator.getRandomIntBetween(random, -3, 14);
+				 int startYear=ValuesGenerator.getRandomIntBetween(random, -3, 14);
 				 String title="Birthday Party";
 				 String description="This is my birthday party.";
 				 String emailAddress="xyz@gmail.com";
 
 				 //Construct a new Appointment object with the initial data	 
-				 //Construct a new Appointment object with the initial data	 
 		         Appt appt = new Appt(startHour,
 		                  startMinute ,
 		                  startDay ,
-		                  startMonth ,
+		                  startMonth,
 		                  startYear ,
 		                  title,
 		                 description,
 		                 emailAddress);
-
+		        
+		         // Set valid appt to test setValid()
+		        appt.setValid();
+		     
+		        // Testing appt.isOn()
+		        if(appt.isOn(6, 6, 6)) {
+		        	System.out.print("Heil Satan!");
+		        }
+		     
 			 if(!appt.getValid())continue;
 			for (int i = 0; i < NUM_TESTS; i++) {
 					String methodName = ApptRandomTest.RandomSelectMethod(random);
@@ -96,6 +105,11 @@ public class ApptRandomTest {
 					   else if (methodName.equals("setRecurrence")){
 						   int sizeArray=ValuesGenerator.getRandomIntBetween(random, 0, 8);
 						   int[] recurDays=ValuesGenerator.generateRandomArray(random, sizeArray);
+						   // Testing recurDays() to be null if 5 is returned
+						   int hit = ValuesGenerator.getRandomIntBetween(random, 0, 8);
+						   if(hit == 5) {
+							   recurDays = null;
+						   }
 						   int recur=ApptRandomTest.RandomSelectRecur(random);
 						   int recurIncrement = ValuesGenerator.RandInt(random);
 						   int recurNumber=ApptRandomTest.RandomSelectRecurForEverNever(random);

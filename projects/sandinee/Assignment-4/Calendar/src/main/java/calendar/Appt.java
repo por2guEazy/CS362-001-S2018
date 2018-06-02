@@ -160,8 +160,8 @@ public class Appt{
      * @sets valid to true if the appointment is valid
      */
 	public void setValid() {
-
-		if (startMonth < 1 || startMonth > 12)
+		// BUG ALERT changed from 12 --> 11
+		if (startMonth < 1 || startMonth > 11)
 			this.valid = false;
 		else if (startHour < 0 || startHour > 23)
 			this.valid = false;
@@ -298,7 +298,8 @@ public class Appt{
     }
     private void setRecurDays(int[] recurDays) {
         if (recurDays == null) {
-            this.recurDays = new int[0];
+        	//BUG ALERT Changed from 0 - 1 
+            this.recurDays = new int[1];
         }
         else {
             this.recurDays = recurDays;
@@ -351,7 +352,8 @@ public class Appt{
      * @return a printable representation of this appointment
      */
     private String represntationApp(){
-        String half = (getStartHour() > 11) ? "pm" : "am";
+    	// BUG ALERT HERE too changed from 11 --> 13
+        String half = (getStartHour() > 13) ? "pm" : "am";
         int printableHour = getStartHour();
         if (printableHour > 11)
         {
