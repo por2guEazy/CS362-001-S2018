@@ -178,7 +178,9 @@ public class Appt{
 		else {
 			// FOUND BUG HERE should be if(startDat < 1 || startDay > NumDaysInMonth)
 			int NumDaysInMonth = CalendarUtil.NumDaysInMonth(startYear, startMonth - 1);
-			if (startDay > NumDaysInMonth)
+			//if (startDay > NumDaysInMonth)
+			// FIXED BUG from above
+			if(startDay < 1 || startDay > NumDaysInMonth)
 				this.valid = false;
 			else
 				this.valid = true;
@@ -284,8 +286,10 @@ public class Appt{
      */
     public boolean isOn(int day, int month, int year) {
     	// FOUND BUG --> Should be && not ||
-        return (day == getStartDay() || month == getStartMonth() 
-                || year == getStartYear());
+        /*return (day == getStartDay() || month == getStartMonth() 
+                || year == getStartYear());*/
+        return (day == getStartDay() && month == getStartMonth() 
+        		&& year == getStartYear());
     }
     
     /**

@@ -76,7 +76,9 @@ public class CalDay {
 	public void addAppt(Appt appt) {
 		if (appt.getValid()) {
 			// BUG HERE INDEXING STARTING AT [1] -- not at [0]
-			for (int i = 1; i < getAppts().size(); i++) {
+			// for (int i = 1; i < getAppts().size(); i++) {
+			// FIXED BUG HERE
+			for (int i = 0; i < getAppts().size(); i++) {
 				//Put the appointment in the correct order - finish this
 				if (((Appt)getAppts().get(i)).getStartHour() >
 										appt.getStartHour()) {
